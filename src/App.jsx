@@ -5,6 +5,9 @@ import { Container, Button, Card, Row, Col } from 'react-bootstrap';
 import Confetti from 'react-confetti';
 import bgImage from './assets/background-image.jpg';
 import trophyImage from './assets/trophy.png';
+import rockIcon from './assets/rock.png';
+import paperIcon from './assets/paper.png';
+import scissorIcon from './assets/scissor.png';
 
 
 function App() {
@@ -75,9 +78,9 @@ function App() {
   };
 
   const gameIcons = {
-    Rock: '/public/rock.png',
-    Paper: '/public/paper.png',
-    Scissors: '/public/scissor.png'
+    Rock: rockIcon,
+    Paper: paperIcon,
+    Scissors: scissorIcon
   };
 
   return (
