@@ -70,6 +70,8 @@ function App() {
     setRoundResult('Your move!');
     setRound(0);
     setMatchResult('');
+    setShowSadness(false);
+    setShowConfetti(false);
   };
 
   const gameIcons = {
@@ -85,7 +87,7 @@ function App() {
         fluid
         className="d-flex justify-content-center align-items-center"
         style={{
-          backgroundImage: `url(${bgImage})`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -93,7 +95,8 @@ function App() {
           minHeight: '100vh',
           fontFamily: "'Press Start 2P', cursive",
           padding: '60px 20px',
-          overflow: 'auto'
+          overflow: 'auto',
+          colorScheme: 'dark'
         }}
       >
         {showConfetti && (
@@ -129,17 +132,17 @@ function App() {
           className="text-center shadow"
           style={{
             border: '4px solid #66ccff',
-            backgroundColor: '#110022',
+            backgroundColor: 'rgba(17, 0, 34, 0.9)',
             padding: '30px',
             maxWidth: '700px',
             width: '100%'
           }}
         >
           <Card.Body>
-            <Card.Title as="h2" style={{ fontFamily: "'Press Start 2P', cursive", fontSize: '1.5rem', marginBottom: '20px' }}>
+            <Card.Title as="h2" style={{ fontFamily: "'Press Start 2P', cursive", fontSize: '1.5rem', marginBottom: '20px', color: '#ffffff' }}>
               Rock Paper Scissors
             </Card.Title>
-            {round < 5 && <p style={{ fontSize: '0.7rem', marginBottom: '30px' }}>Round {round + 1} of 5</p>}
+            {round < 5 && <p style={{ fontSize: '0.7rem', marginBottom: '30px', color: '#ffccff' }}>Round {round + 1} of 5</p>}
 
             <Row className="mb-4 justify-content-center">
               {options.map((item) => (
@@ -166,20 +169,20 @@ function App() {
             <div className="results mb-4">
               <Row className="justify-content-center align-items-center mb-3" style={{ border: '2px dashed #888', padding: '10px' }}>
                 <Col xs="auto"><img src={gameIcons[playerPick]} alt="Player" style={{ width: '40px', height: '40px', imageRendering: 'pixelated' }} /></Col>
-                <Col xs="auto"><span style={{ fontSize: '1.2rem' }}>vs</span></Col>
+                <Col xs="auto"><span style={{ fontSize: '1.2rem', color: '#ffffff' }}>vs</span></Col>
                 <Col xs="auto"><img src={gameIcons[computerPick]} alt="Computer" style={{ width: '40px', height: '40px', imageRendering: 'pixelated' }} /></Col>
               </Row>
-              <h3 style={{ fontSize: '0.85rem' }}>{roundResult}</h3>
+              <h3 style={{ fontSize: '0.85rem', color: '#ffffff' }}>{roundResult}</h3>
             </div>
 
             <div className="scoreboard mb-4">
               <Row className="justify-content-center">
-                <Col xs="auto"><h6 style={{ color: '#99ccff' }}>Player: {playerPoints}</h6></Col>
-                <Col xs="auto"><h6 style={{ color: '#ff99ff' }}>Computer: {computerPoints}</h6></Col>
+                <Col xs="auto"><h6 style={{ color: '#ffffff' }}>Player: {playerPoints}</h6></Col>
+                <Col xs="auto"><h6 style={{ color: '#ffccff' }}>Computer: {computerPoints}</h6></Col>
               </Row>
             </div>
 
-            {matchResult && <h2 className="mt-3" style={{ fontWeight: 'bold', textAlign: 'center' }}>{matchResult}</h2>}
+            {matchResult && <h2 className="mt-3" style={{ fontWeight: 'bold', textAlign: 'center', color: '#ffffff' }}>{matchResult}</h2>}
             {matchResult.toLowerCase().includes('congratulations') && (
               <div className="d-flex justify-content-center mt-3">
                 <img
